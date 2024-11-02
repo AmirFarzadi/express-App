@@ -1,0 +1,5 @@
+{
+  "name": "Express Application",
+  "version": "1.0.0",
+  "description": "A simple Express application with endpoints for managing users."
+}
