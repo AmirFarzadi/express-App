@@ -7,6 +7,7 @@ const debug = require("debug")("app.main");
 const dbdebug = require("debug")("app.db");
 const usersRouter = require("./routes/users");
 const homeRouter = require("./routes/home");
+const mongoose = require("mongoose")
 // Config
 // console.log(config.get("name"));
 // console.log(config.get("SMS"));
@@ -26,6 +27,13 @@ if (process.env.NODE_ENV === "development") {
 }
 dbdebug("Database connected...");
 
+// Connect to MongoDB
+mongoose
+  .connect("mongodb://localhost:27017/express-App")
+  .then(() => console.log("MongoDB connected..."))
+  .catch(() => console.error("Failed to connect to MongoDB"));
+
+  
 app.use("/api/users", usersRouter);
 app.use("/", homeRouter);
 
